@@ -32,8 +32,6 @@ node_modules
 # Optional REPL history
 .node_repl_history
 TypeScript/greeter/greeter.js
-TypeScript/phone-book/app/pracxs.js.map
-TypeScript/phone-book/app/pracxs.js
 Angular/play-ground/typings/
 Angular/phone-book/typings/
 *.map
@@ -47,10 +45,6 @@ Angular/play-ground/\.yarn.lock/
 Angular-Testing/play-ground/dist/
 
 JavaScript/async-load-2/\.idea/
-
-JavaScript/phone-book/\.idea/
-
-TypeScript/phone-book-modules/\.idea/
 
 Angular/play-ground/dist/
 
@@ -69,7 +63,6 @@ Angular/phone-book-router-children/\.idea/
 Angular/phone-book-router-modules-lazy/\.idea/
 
 Angular/phone-book-router-modules/\.idea/
-
 
 Angular-Testing/play-ground/\.idea/
 Angular-Testing/play-ground/\.yarn.lock/
