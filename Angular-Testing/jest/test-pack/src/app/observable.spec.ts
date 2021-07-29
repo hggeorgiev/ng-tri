@@ -5,8 +5,9 @@ import { Observable } from "rxjs/index";
 
 describe('Observable: basic observable', () => {
   //setup
+  let basic$
   beforeEach(() => {
-    this.basic$ = new Observable(observer => {
+    basic$ = new Observable(observer => {
       //pushing values
       observer.next(10)
       observer.next(20)
@@ -21,7 +22,7 @@ describe('Observable: basic observable', () => {
     let expected = [10, 20, 30]
     let index    = 0
 
-    this.basic$
+    basic$
       .subscribe(
         x => {                  // next
           expect(x).toEqual(expected[index++])

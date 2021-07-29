@@ -39,6 +39,6 @@ let CONTACTS: Person[] = [
 @Injectable()
 export class LoadPersonsService {
         load() {
-            return PERSONS;
+            return CONTACTS;
         }
 }

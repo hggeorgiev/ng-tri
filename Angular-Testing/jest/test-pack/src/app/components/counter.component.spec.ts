@@ -3,8 +3,9 @@ import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from '@angul
 import {Counter} from "./counter.component"
 
 describe('EventEmitter: Counter', () => {
+  let counter;
 
-  beforeAll( () => { 
+  beforeAll( () => {
       TestBed.resetTestEnvironment()
       TestBed.initTestEnvironment( BrowserDynamicTestingModule, platformBrowserDynamicTesting() )
   })
@@ -16,23 +17,23 @@ describe('EventEmitter: Counter', () => {
       })
 
       let fixture = TestBed.createComponent( Counter )
-      this.counter = fixture.componentInstance
+      counter = fixture.componentInstance
   })
-  
+
   //specs
   it('should increment +1', done => {
-    this.counter.changes.subscribe(x => { 
+    counter.changes.subscribe(x => {
       expect(x).toBe(1)
       done()
     })
-    this.counter.change(1)
+    counter.change(1)
   })
 
   it('should decrement -1', done => {
-    this.counter.changes.subscribe(x => { 
+    counter.changes.subscribe(x => {
       expect(x).toBe(-1)
       done()
     })
-    this.counter.change(-1)
-  })  
-}) 
+    counter.change(-1)
+  })
+})

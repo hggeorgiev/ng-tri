@@ -1,10 +1,11 @@
-import {async, inject, TestBed, ComponentFixture} from '@angular/core/testing'
+import {async, inject, TestBed, ComponentFixture, waitForAsync} from '@angular/core/testing'
 import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from '@angular/platform-browser-dynamic/testing'
 import {Router} from "@angular/router"
 import {Location} from '@angular/common'
 import {SpyLocation} from "@angular/common/testing"
 import { AppComponent } from "../app.component";
 import { AppModule } from "../app.module";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('Router tests', () => {
 
@@ -18,9 +19,9 @@ describe('Router tests', () => {
   })
 
   //setup
-  beforeEach( async(() => {
+  beforeEach( waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ AppModule ],
+      imports: [ AppModule, RouterTestingModule ],
       providers: [ { provide: Location, useClass: SpyLocation } ]
     })
     .compileComponents().then(() => {

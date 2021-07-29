@@ -1,10 +1,11 @@
-import {async, inject, TestBed, ComponentFixture} from '@angular/core/testing'
+import { inject, TestBed, ComponentFixture, waitForAsync} from '@angular/core/testing'
 import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from '@angular/platform-browser-dynamic/testing'
-import {Router} from "@angular/router"
+import {Router, RouterModule} from "@angular/router"
 import {Location} from '@angular/common'
 import {SpyLocation} from "@angular/common/testing"
 import { AppComponent } from "../app.component";
 import { AppModule } from "../app.module";
+import {RouterTestingModule} from "@angular/router/testing";
 
 
 const responseData = [
@@ -35,9 +36,9 @@ describe('Router & App tests', () => {
   })
 
   //setup
-  beforeEach( async(() => {
+  beforeEach( waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ AppModule ],
+      imports: [ AppModule, RouterTestingModule ],
       providers: [ { provide: Location, useClass: SpyLocation } ]
     })
     .compileComponents().then(() => {
@@ -52,7 +53,7 @@ describe('Router & App tests', () => {
 
   //specs
 
-  it('Selecting About link should load it', async(() => {
+  it('Selecting About link should load it', waitForAsync(() => {
 
     fixture.detectChanges()
 

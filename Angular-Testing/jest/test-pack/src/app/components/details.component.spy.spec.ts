@@ -3,6 +3,7 @@ import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from '@angul
 import {PersonsDetailsComponent} from './details.component'
 import { PersonService } from "../services/person.service";
 import { LoadPersonsService } from "../services/load-persons.service";
+import {Person} from "../person";
 
 
 describe('PersonsDetailsComponent (SPY)', () => {
@@ -10,15 +11,15 @@ describe('PersonsDetailsComponent (SPY)', () => {
     let fixture: ComponentFixture<PersonsDetailsComponent>
     let personServiceSpy: PersonService
 
-    let mock_contacts = [
+    let mockContacts: Person[] = [
       {
-        "id": "1",
+        "id": 1,
         "firstName": "Gordon",
         "lastName": "Freeman",
         "email": "freeman@blackmesa.com"
       },
       {
-        "id": "2",
+        "id": 2,
         "firstName": "Alyx",
         "lastName": "Vance",
         "email": "alyx@resitance.com"
@@ -47,7 +48,7 @@ describe('PersonsDetailsComponent (SPY)', () => {
         fixture = TestBed.createComponent( PersonsDetailsComponent )
 
         personServiceSpy = fixture.debugElement.injector.get(PersonService)
-        spyOn(personServiceSpy, 'getAll').and.returnValue( mock_contacts )
+        spyOn(personServiceSpy, 'getAll').and.returnValue( mockContacts )
     })
 
     it('must be a list of persons list', () => {
